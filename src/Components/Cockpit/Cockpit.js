@@ -5,6 +5,20 @@ import classes from "./Cockpit.css";
 const cockpit = (props) => {
   useEffect(() => {
     console.log("[cockpit.js] useEffect");
+    const timer = setTimeout(() => {
+      alert("saved to cloud!");
+    }, 1000);
+    return () => {
+      clearTimeout(timer);
+      console.log("[cockpit.js] cleanup work in useEffect");
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log("[cockpit.js] useEffect 2");
+    return () => {
+      console.log("[cockpit.js] cleanup work in useEffect 2");
+    };
   });
 
   const assignedClasses = [];
