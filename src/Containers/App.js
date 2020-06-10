@@ -32,7 +32,11 @@ class App extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     console.log("[App.js] shouldComponentUpdate");
-    return true;
+    if (nextProps.persons !== this.state.persons) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   componentDidUpdate() {
@@ -96,7 +100,7 @@ class App extends Component {
           <Cockpit
             title={this.props.appTitle}
             showPersons={this.state.showPersons}
-            persons={this.state.persons}
+            personsLength={this.state.persons.length}
             clicked={this.togglePersonsHandler}
           />
         ) : null}
