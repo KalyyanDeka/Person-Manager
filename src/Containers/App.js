@@ -22,6 +22,7 @@ class App extends Component {
     otherState: "Some other value",
     showPersons: false,
     showCockpit: true,
+    changeCounter: 0,
   };
   static getDerivedStateFromProps(props, state) {
     console.log("[App.js] getDerivedStateFromProps", props);
